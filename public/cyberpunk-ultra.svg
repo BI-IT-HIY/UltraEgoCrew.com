@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="300" viewBox="0 0 1200 300" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+        <!-- Enhanced metallic gradient with more color stops -->
+        <linearGradient id="metallic" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#FFD700"/>
+            <stop offset="20%" style="stop-color:#FDB900"/>
+            <stop offset="40%" style="stop-color:#FFA500"/>
+            <stop offset="60%" style="stop-color:#FFD700"/>
+            <stop offset="80%" style="stop-color:#FDB900"/>
+            <stop offset="100%" style="stop-color:#FFA500"/>
+        </linearGradient>
+        
+        <!-- More intense neon glow with multiple layers -->
+        <filter id="neonGlow">
+            <feGaussianBlur stdDeviation="1" result="blur1"/>
+            <feFlood flood-color="#80FFFF" flood-opacity="1" result="glow1"/>
+            <feComposite in="glow1" in2="blur1" operator="in" result="softGlow1"/>
+            
+            <feGaussianBlur stdDeviation="2" result="blur2"/>
+            <feFlood flood-color="#00FFFF" flood-opacity="0.8" result="glow2"/>
+            <feComposite in="glow2" in2="blur2" operator="in" result="softGlow2"/>
+            
+            <feGaussianBlur stdDeviation="4" result="blur3"/>
+            <feFlood flood-color="#00DFFF" flood-opacity="0.6" result="glow3"/>
+            <feComposite in="glow3" in2="blur3" operator="in" result="softGlow3"/>
+            
+            <feMerge>
+                <feMergeNode in="softGlow3"/>
+                <feMergeNode in="softGlow2"/>
+                <feMergeNode in="softGlow1"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+
+        <!-- Enhanced metallic effect -->
+        <filter id="edgeHighlight">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="1" result="blur"/>
+            <feSpecularLighting in="blur" surfaceScale="6" specularConstant="2.5" 
+                              specularExponent="25" lighting-color="#ffffff">
+                <fePointLight x="-5000" y="-10000" z="20000"/>
+            </feSpecularLighting>
+            <feComposite in2="SourceGraphic" operator="in"/>
+            <feComposite in2="SourceGraphic" operator="arithmetic" k1="0" k2="1" k3="1" k4="0"/>
+        </filter>
+        
+        <!-- Background radial gradient -->
+        <radialGradient id="bgGradient" cx="50%" cy="50%" r="70%">
+            <stop offset="0%" style="stop-color:#000B14"/>
+            <stop offset="100%" style="stop-color:#000304"/>
+        </radialGradient>
+    </defs>
+
+    <!-- Dark background with gradient -->
+    <rect x="0" y="0" width="1200" height="300" fill="url(#bgGradient)"/>
+
+    <g transform="translate(150, 150) skewX(-15)">
+        <!-- ULTRA section -->
+        <g transform="scale(1.2)">
+            <!-- U -->
+            <path d="M0,0 l40,-20 l0,60 l80,0 l0,-60 l40,20 M40,-20 l0,60" 
+                  fill="url(#metallic)" filter="url(#edgeHighlight)"/>
+            <!-- L -->
+            <path d="M180,0 l40,-20 l0,60 l80,0 M220,-20 l0,60" 
+                  fill="url(#metallic)" filter="url(#edgeHighlight)"/>
+            <!-- T -->
+            <path d="M320,-20 l120,0 l-60,80 M380,-20 l0,60" 
+                  fill="url(#metallic)" filter="url(#edgeHighlight)"/>
+            <!-- R -->
+            <path d="M400,0 l40,-20 l0,60 l40,-20 l40,20 M440,-20 l0,60" 
+                  fill="url(#metallic)" filter="url(#edgeHighlight)"/>
+            <!-- A -->
+            <path d="M540,-20 l40,80 l40,-80 l-40,40 l-40,-40 M560,0 l40,0" 
+                  fill="url(#metallic)" filter="url(#edgeHighlight)"/>
+
+            <!-- Neon outlines with enhanced glow -->
+            <g fill="none" stroke="#00FFFF" stroke-width="1.5" filter="url(#neonGlow)">
+                <path d="M0,0 l40,-20 l0,60 l80,0 l0,-60 l40,20 M40,-20 l0,60"/>
+                <path d="M180,0 l40,-20 l0,60 l80,0 M220,-20 l0,60"/>
+                <path d="M320,-20 l120,0 l-60,80 M380,-20 l0,60"/>
+                <path d="M400,0 l40,-20 l0,60 l40,-20 l40,20 M440,-20 l0,60"/>
+                <path d="M540,-20 l40,80 l40,-80 l-40,40 l-40,-40 M560,0 l40,0"/>
+            </g>
+
+            <!-- Angular breaks with enhanced glow -->
+            <g stroke="#00FFFF" stroke-width="1.5" filter="url(#neonGlow)">
+                <path d="M100,-10 l20,30"/>
+                <path d="M260,-10 l20,30"/>
+                <path d="M420,-10 l20,30"/>
+                <path d="M580,-10 l20,30"/>
+            </g>
+        </g>
+
+        <!-- EGOCREW section -->
+        <g transform="translate(700,0) scale(1.2)">
+            <!-- EGO -->
+            <path d="M0,0 l40,-20 l80,40 l-80,40 l-40,-20 M20,-10 l60,0" 
+                  fill="url(#metallic)" filter="url(#edgeHighlight)"/>
+            <!-- CREW -->
+            <path d="M140,0 l40,-20 l80,40 l-80,40 l-40,-20 M160,-10 l60,0" 
+                  fill="url(#metallic)" filter="url(#edgeHighlight)"/>
+            
+            <!-- Neon outlines -->
+            <g fill="none" stroke="#00FFFF" stroke-width="1.5" filter="url(#neonGlow)">
+                <path d="M0,0 l40,-20 l80,40 l-80,40 l-40,-20 M20,-10 l60,0"/>
+                <path d="M140,0 l40,-20 l80,40 l-80,40 l-40,-20 M160,-10 l60,0"/>
+            </g>
+
+            <!-- Additional decorative elements -->
+            <g stroke="#00FFFF" stroke-width="1.5" filter="url(#neonGlow)">
+                <path d="M-20,-30 l10,60"/>
+                <path d="M120,-30 l10,60"/>
+                <path d="M260,-30 l10,60"/>
+            </g>
+        </g>
+    </g>
+</svg>
