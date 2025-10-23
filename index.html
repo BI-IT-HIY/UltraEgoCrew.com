@@ -2,13 +2,63 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/cyberpunk-ultra.svg" />
+    <link rel="icon" type="image/svg+xml" href="/cyberpunk-ultra-v5.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes glowPulse {
+            0% { filter: drop-shadow(0 0 5px #00FFFF) drop-shadow(0 0 10px #00FFFF50); }
+            50% { filter: drop-shadow(0 0 7px #00FFFF) drop-shadow(0 0 14px #00FFFF70); }
+            100% { filter: drop-shadow(0 0 5px #00FFFF) drop-shadow(0 0 10px #00FFFF50); }
+        }
+        
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+        
         body {
-            background: #000B14;
-            background: radial-gradient(circle, #001625 0%, #000304 100%);
+            background: linear-gradient(45deg, #000B14, #001625, #000B14);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            background: linear-gradient(transparent, #00FFFF08, transparent);
+            animation: scanline 8s linear infinite;
+            pointer-events: none;
+        }
+
+        .cyberpunk-glow {
+            animation: glowPulse 4s ease-in-out infinite;
+        }
+
+        .circuit-grid {
+            background-image: 
+                linear-gradient(to right, #00FFFF08 1px, transparent 1px),
+                linear-gradient(to bottom, #00FFFF08 1px, transparent 1px);
+            background-size: 20px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            opacity: 0.2;
         }
     </style>
 
