@@ -12,27 +12,3 @@ html,body{
 body{
   background-color: #090c13;
 }
-
-/* Neon / cyberpunk branding */
-.brand, .hero-logo {
-  font-family: 'Orbitron', sans-serif;
-  color: #00ffd5;
-  background: linear-gradient(90deg, #00ffd5 0%, #6a00ff 45%, #ff0066 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  text-shadow: 0 0 8px rgba(0,255,213,0.45), 0 0 20px rgba(106,0,255,0.25), 0 0 40px rgba(255,0,102,0.12);
-}
-
-.brand { font-size: 1.25rem; font-weight:700; }
-.hero-logo { font-size: clamp(2.5rem, 8vw, 8rem); font-weight:800; letter-spacing: 6px; }
-
-/* subtle backdrop to hero so logo stands out */
-.hero-logo::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  backdrop-filter: blur(6px);
-  opacity: 0.06;
-  pointer-events: none;
-}
